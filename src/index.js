@@ -1,13 +1,40 @@
+// CHALLENGE: uncomment the code below and see the car stats rendered
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
+import Cars from "./practice";
 
+const [honda, tesla] = Cars;
+const {
+  speedStats: { topSpeed: teslaTopSpeed }
+} = tesla;
+const {
+  speedStats: { topSpeed: hondaTopSpeed }
+} = honda;
 
+const {
+  coloursByPopularity: [teslaTopColour]
+} = tesla;
+const {
+  coloursByPopularity: [hondaTopColour]
+} = honda;
 
-ReactDOM.render(<App />, document.getElementById("root"));
-
-//Challenge: Without moving the userIsRegistered variable,
-//1. Show Login as the button text if userIsRegistered is true.
-//Show Register as the button text if userIsRegistered is false.
-//2. Only show the Confirm Password input if userIsRegistered is false.
-//Don't show it if userIsRegistered is true.
+ReactDOM.render(
+  <table>
+    <tr>
+      <th>Brand</th>
+      <th>Top Speed</th>
+      <th>color</th>
+    </tr>
+    <tr>
+      <td>{tesla.model}</td>
+      <td>{teslaTopSpeed}</td>
+      <td>{teslaTopColour}</td>
+    </tr>
+    <tr>
+      <td>{honda.model}</td>
+      <td>{hondaTopSpeed}</td>
+      <td>{hondaTopColour}</td>
+    </tr>
+  </table>,
+  document.getElementById("root")
+);
